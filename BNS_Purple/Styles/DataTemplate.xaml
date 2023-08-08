@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:BNS_Purple.ViewModels"
+                    xmlns:view="clr-namespace:BNS_Purple.Views">
+    <DataTemplate DataType="{x:Type viewmodel:MainWindowViewModel}">
+        <view:MainWindowView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:ProgressViewModel}">
+        <view:ProgressView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:SettingsViewModel}">
+        <view:SettingsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:UpdaterViewModel}">
+        <view:UpdaterView/>
+    </DataTemplate>
+</ResourceDictionary>
