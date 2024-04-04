@@ -470,6 +470,12 @@ namespace BNS_Purple.ViewModels
                         string destination = Path.GetFullPath(Path.Combine(BNS_PATH, Path.GetDirectoryName(file.fileInfo.path)));
                         if (deltaPatch && file.fileInfo.patchType == PatchFile_FlagType.ChangedOriginal)
                         {
+                        //Fix directory not create 
+                            if (!Directory.Exists(destination))
+                            {
+                                Directory.CreateDirectory(destination);
+                            }
+
                             if (file.fileInfo.deltaInfo.separates != null)
                             {
                                 List<string> archives = new List<string>();
@@ -527,7 +533,12 @@ namespace BNS_Purple.ViewModels
                     Application.Current.Dispatcher.BeginInvoke(new Action(() => { ProgressBlock = "Internal Check"; }));
                     if (totalFiles > 0 && update_file_map.Any(x => !x.Downloaded))
                         _errorLog.Add("Download checks failed");
-
+                    if (this._errorLog.Count > 0)
+					{
+						this._errorLog.ForEach(delegate(string x)
+						{
+						});
+					}
                     Thread.Sleep(500);
                     Application.Current.Dispatcher.BeginInvoke(new Action(() => { ProgressBlock = "Cleaning up"; }));
 
