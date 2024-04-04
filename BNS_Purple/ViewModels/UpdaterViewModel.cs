@@ -534,11 +534,10 @@ namespace BNS_Purple.ViewModels
                     if (totalFiles > 0 && update_file_map.Any(x => !x.Downloaded))
                         _errorLog.Add("Download checks failed");
                     if (this._errorLog.Count > 0)
-					{
-						this._errorLog.ForEach(delegate(string x)
-						{
-						});
-					}
+		    {
+		      this._errorLog.ForEach(delegate(string x)
+		      {});
+		    }
                     Thread.Sleep(500);
                     Application.Current.Dispatcher.BeginInvoke(new Action(() => { ProgressBlock = "Cleaning up"; }));
 
